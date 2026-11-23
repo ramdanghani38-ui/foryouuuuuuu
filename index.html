@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Untuk Liaaaa 🌸</title>
+<style>
+:root{--bg1:#fff0f6;--bg2:#fbcfe8;--card:#ffffff;--ink:#5b2342;--soft:#9d4f77;--accent:#ec4899;--box:#fdf2f8;--line:#f9a8d4;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#2a1020;--bg2:#4a1d38;--card:#3a1730;--ink:#ffe4f1;--soft:#f5b5d4;--accent:#f472b6;--box:#4a1d38;--line:#7a2f5a}}
+:root[data-theme="dark"]{--bg1:#2a1020;--bg2:#4a1d38;--card:#3a1730;--ink:#ffe4f1;--soft:#f5b5d4;--accent:#f472b6;--box:#4a1d38;--line:#7a2f5a}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;background:linear-gradient(160deg,var(--bg1),var(--bg2));color:var(--ink);font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
+.petal{position:fixed;top:-30px;width:14px;height:18px;background:var(--accent);opacity:.45;border-radius:80% 0 80% 0;pointer-events:none;animation:fall linear infinite}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg)}}
+main{position:relative;max-width:560px;margin:0 auto;padding:28px 18px 40px;text-align:center}
+h1{font-size:2rem;margin:.2em 0;color:var(--accent);font-weight:normal}
+.sub{color:var(--soft);margin:0 0 22px}
+.grid{display:grid;gap:14px}
+.opt{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:10px 10px 14px;cursor:pointer;color:var(--ink);font:inherit;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 18px rgba(236,72,153,.15)}
+.opt:active,.opt:hover{transform:scale(1.02);box-shadow:0 10px 26px rgba(236,72,153,.3)}
+.opt svg{width:150px;height:auto;display:block;margin:0 auto}
+.opt b{display:block;color:var(--accent);font-weight:normal;font-size:1.1rem}
+.opt small{color:var(--soft)}
+@media(min-width:480px){.grid{grid-template-columns:repeat(3,1fr)}.opt svg{width:100%}}
+.card{background:var(--card);border:2px solid var(--line);border-radius:26px;padding:22px 20px 26px;box-shadow:0 12px 34px rgba(236,72,153,.22);animation:pop .7s ease both;text-align:left}
+@keyframes pop{from{opacity:0;transform:translateY(20px) scale(.96)}}
+.card .big{width:210px;max-width:70%;display:block;margin:-4px auto 6px}
+.card h2{text-align:center;color:var(--accent);font-weight:normal;font-size:1.6rem;margin:.2em 0 .6em}
+.card p{line-height:1.7;margin:.7em 0}
+.sorry{background:var(--box);border-left:4px solid var(--accent);border-radius:12px;padding:4px 14px;margin:16px 0}
+.sign{text-align:right;font-style:italic;color:var(--soft)}
+.back{margin-top:18px;background:none;border:1.5px solid var(--accent);color:var(--accent);border-radius:999px;padding:9px 20px;font:inherit;cursor:pointer}
+.hide{display:none}
+@media(prefers-reduced-motion:reduce){.petal,.card{animation:none}}
+</style>
+</head>
+<body>
+<main>
+ <section id="cover">
+  <h1>Untuk Liaaaa 💗</h1>
+  <p class="sub">Ada kartu kecil untukmu. Pilih buket yang paling kamu suka, lalu ketuk untuk membukanya.</p>
+  <div class="grid" id="opts"></div>
+ </section>
+ <section id="msg" class="hide">
+  <div class="card">
+   <div id="big"></div>
+   <h2 id="ttl"></h2>
+   <div id="txt"></div>
+  </div>
+  <button class="back" id="back">← Lihat buket lain</button>
+ </section>
+</main>
+<script>
+function fl(t,x,y,s){var g='<g transform="translate('+x+' '+y+') scale('+s+')">',i;
+ if(t==='daisy'){for(i=0;i<10;i++)g+='<ellipse cx="0" cy="-12" rx="5" ry="12" fill="#fff0f5" stroke="#f9a8c9" stroke-width="1" transform="rotate('+i*36+')"/>';g+='<circle r="6" fill="#ffc94d"/>';}
+ else if(t==='rose'){for(i=0;i<5;i++)g+='<circle cx="0" cy="-10" r="9" fill="#f472b6" transform="rotate('+i*72+')"/>';for(i=0;i<5;i++)g+='<circle cx="0" cy="-5" r="6" fill="#ec4899" transform="rotate('+(i*72+36)+')"/>';g+='<circle r="6" fill="#db2777"/><path d="M-3 0a3 3 0 1 1 5 -2" stroke="#fbcfe8" fill="none" stroke-width="1.2"/>';}
+ else if(t==='tulip'){g+='<ellipse cx="-7" cy="-9" rx="7" ry="15" fill="#f472b6" transform="rotate(-18 -7 -9)"/><ellipse cx="7" cy="-9" rx="7" ry="15" fill="#f472b6" transform="rotate(18 7 -9)"/><ellipse cx="0" cy="-11" rx="8" ry="17" fill="#f9a8d4"/>';}
+ else{for(i=0;i<5;i++)g+='<ellipse cx="0" cy="-11" rx="7" ry="11" fill="#fbcfe8" stroke="#f9a8d4" stroke-width="1" transform="rotate('+i*72+')"/>';g+='<circle r="4" fill="#ec4899"/><circle r="1.5" cx="3" cy="-3" fill="#fff"/>';}
+ return g+'</g>';}
+var B={
+ mawar:{n:'Mawar Pink',d:'manis & hangat',f:[['rose',100,52,1.5],['rose',58,88,1.2],['rose',142,88,1.2],['daisy',78,128,.9],['daisy',124,126,.9],['rose',100,110,1]]},
+ tulip:{n:'Tulip Lembut',d:'segar & ceria',f:[['tulip',100,60,1.3],['tulip',60,92,1.1],['tulip',140,92,1.1],['sakura',82,132,.9],['sakura',120,130,.9],['tulip',100,112,1]]},
+ sakura:{n:'Taman Sakura',d:'cantik & tenang',f:[['sakura',100,50,1.5],['sakura',58,86,1.3],['sakura',142,86,1.3],['rose',100,104,1.1],['daisy',70,134,.8],['daisy',130,134,.8]]}
+};
+function bq(k){var o=B[k],s='<svg viewBox="0 0 200 245" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Buket '+o.n+'">';
+ o.f.forEach(function(a){s+='<path d="M'+a[1]+' '+a[2]+' Q'+((a[1]+100)/2)+' 170 100 212" stroke="#5aa86b" stroke-width="3" fill="none"/>';});
+ s+='<ellipse cx="62" cy="168" rx="16" ry="6" fill="#6fbf80" transform="rotate(-25 62 168)"/><ellipse cx="140" cy="168" rx="16" ry="6" fill="#6fbf80" transform="rotate(25 140 168)"/>';
+ o.f.forEach(function(a){s+=fl(a[0],a[1],a[2],a[3]);});
+ s+='<path d="M52 178 L148 178 L108 240 L92 240 Z" fill="#f9a8d4" stroke="#ec4899" stroke-width="1.5"/><path d="M52 178 L100 200 L148 178" fill="#fbcfe8" stroke="#ec4899" stroke-width="1.5"/>';
+ s+='<path d="M100 204 L80 194 L82 214 Z M100 204 L120 194 L118 214 Z" fill="#ec4899"/><circle cx="100" cy="204" r="5" fill="#be185d"/></svg>';
+ return s;}
+var M={
+ mawar:{t:'Istirahat dulu ya, Lia 🌹',p:['Aku lihat kamu akhir-akhir ini sibuk banget sama kerjaan, ditambah badan lagi nggak enak. Kasihan kamu, pasti lelah. Pelan-pelan aja ya, nggak apa-apa kok kalau hari ini nggak semuanya kelar.','Tolong jangan skip makan, minum obat atau vitamin kalau perlu, terus tidur yang cukup. Itu aja dulu.'],s:'Aku juga mau minta maaf. Belakangan aku kurang merhatiin kamu, padahal kamu lagi butuh ditanyain kabar. Itu salahku, dan aku nggak mau kebiasaan itu kebawa terus.',c:'Cepet sembuh ya, Liaaaa. Aku sayang kamu. 💕'},
+ tulip:{t:'Semangat, Liaaaa! 🌷',p:['Hei, minggu-minggu ini kamu lagi berjuang banget ya. Kerjaan numpuk, badan juga ikut protes. Tapi kamu masih jalan terus, dan menurutku itu keren.','Kalau udah capek, berhenti sebentar nggak masalah. Minum teh hangat, selonjorin kaki, tarik napas. Habis itu lanjut lagi, kamu pasti bisa.'],s:'Oh iya, maaf ya aku sering kurang kabar dan kurang peka akhir-akhir ini. Harusnya aku lebih sering nanya “udah makan belum?” ke kamu. Mulai sekarang aku coba lebih rajin.',c:'Cepet pulih ya! Kalau udah enakan, kabarin aku. 🌸'},
+ sakura:{t:'Buat Liaaaa yang lagi capek 🌸',p:['Kamu nggak perlu bales panjang-panjang kok. Ini cuma mau nyelipin sedikit tenang di tengah harimu yang rame.','Kamu udah ngelakuin yang terbaik, walaupun badan lagi nggak mau diajak kerja sama. Kalau ada yang bikin kepikiran, taruh dulu aja. Besok masih ada waktu.'],s:'Maaf ya, belakangan aku belum jadi orang yang cukup ada buat kamu. Aku sadar kok. Kalau kamu butuh didengerin atau cuma ditemenin diem, bilang aja ya.',c:'Istirahat yang enak ya, semoga besok badanmu lebih ringan. 💗'}
+};
+function fill(k){var m=M[k];document.getElementById('ttl').textContent=m.t;document.getElementById('txt').innerHTML=m.p.map(function(x){return '<p>'+x+'</p>'}).join('')+'<div class="sorry"><p>'+m.s+'</p></div><p>'+m.c+'</p><p class="sign">— Ridwan</p>';}
+var opts=document.getElementById('opts'),cover=document.getElementById('cover'),msg=document.getElementById('msg'),big=document.getElementById('big');
+Object.keys(B).forEach(function(k){var b=document.createElement('button');b.className='opt';b.innerHTML=bq(k)+'<b>'+B[k].n+'</b><small>'+B[k].d+'</small>';
+ b.onclick=function(){fill(k);big.className='big';big.innerHTML=bq(k).replace('<svg','<svg class="big"');cover.className='hide';msg.className='';window.scrollTo(0,0);};opts.appendChild(b);});
+document.getElementById('back').onclick=function(){msg.className='hide';cover.className='';window.scrollTo(0,0);};
+for(var i=0;i<14;i++){var p=document.createElement('span');p.className='petal';p.style.left=Math.random()*100+'vw';p.style.animationDuration=(9+Math.random()*9)+'s';p.style.animationDelay=(-Math.random()*14)+'s';document.body.appendChild(p);}
+</script>
+</body>
+</html>
